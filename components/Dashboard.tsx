@@ -178,7 +178,7 @@ const Dashboard: React.FC = () => {
             </Card>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             <Card title="Nilai Daftar Hadir"><AttendanceChart data={attendanceChartData} /></Card>
             <Card title="Ranking Kelas (Overall)"><RankingChart data={classRankings.map(r => ({ name: r.name, value: r.score }))} /></Card>
           </div>

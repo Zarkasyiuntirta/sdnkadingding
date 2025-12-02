@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, PieChart, Pie, Cell, Legend, RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts';
 import { FullStudentData, ProactiveData, Semester, Student } from '../types';
@@ -127,9 +126,9 @@ const SortedBarChart: React.FC<SortedBarChartProps> = ({ data, yAxisLabel }) => 
     
     return (
         <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <XAxis type="number" stroke="#9ca3af" />
-                <YAxis dataKey="name" type="category" stroke="#9ca3af" width={80} tick={{ fontSize: 12 }} />
+            <BarChart data={data} margin={{ top: 5, right: 30, left: 0, bottom: 60 }}>
+                <XAxis dataKey="name" type="category" stroke="#9ca3af" tick={{ fontSize: 10 }} interval={0} angle={-45} textAnchor="end" height={70} />
+                <YAxis stroke="#9ca3af" />
                 <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(100, 116, 139, 0.2)' }}/>
                 <Bar dataKey="value" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     {data.map((entry, index) => (
@@ -137,7 +136,7 @@ const SortedBarChart: React.FC<SortedBarChartProps> = ({ data, yAxisLabel }) => 
                             key={`cell-${index}`} 
                             fill={COLORS[index % COLORS.length]}
                             transform={activeIndex === index ? 'scale(1.05)' : 'scale(1)'}
-                            style={{ transition: 'transform 0.2s ease-in-out', transformOrigin: 'left' }}
+                            style={{ transition: 'transform 0.2s ease-in-out', transformOrigin: 'center bottom' }}
                         />
                     ))}
                 </Bar>
